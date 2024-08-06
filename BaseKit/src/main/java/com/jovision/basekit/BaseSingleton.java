@@ -3,9 +3,7 @@ package com.jovision.basekit;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
-/**
- * Created by ZHP on 2017/6/24.
- */
+
 public abstract class BaseSingleton {
 
     /***
