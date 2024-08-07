@@ -1055,4 +1055,29 @@ public class FileUtil {
             return false;
         }
     }
+
+    /**
+     * 方法名称： createFolder
+     * 方法作用：创建文件夹
+     * @param path ：路径
+     * @return
+     * 返回值类型：int
+     * 返回值含义：0代表 文件夹已存在 1代表文件夹创建成功
+     * 作者：livingwater
+     * 时间：2018年8月16日  下午7:25:21
+     */
+    public static int createFolder(String path) {
+        int result=0;
+        // 创建文件夹
+        File folder = new File(path);
+        // 判断文件夹是否存在
+        if (!folder.exists() && !folder.isDirectory()) {
+            System.out.println("文件夹创建成功，路径是:" + folder.getPath());
+            folder.mkdirs();
+            result = 1;
+        } else {
+            System.out.println("文件夹已存在:" + folder.getPath());
+        }
+        return result;
+    }
 }
