@@ -277,12 +277,12 @@ public class MMKVKit {
      * @param serializable 实现了序列化的对象
      */
     public void putObjectData(Serializable serializable) {
-        getMMKV().putString(serializable.getClass().getName(), JsonUtil.parserObjectToGson(serializable))
+        getMMKV().putString(serializable.getClass().getName(), JsonUtils.parserObjectToGson(serializable))
                 .apply();
     }
 
     public void putObjectData(String kvName, Serializable serializable) {
-        getMMKV(kvName).putString(serializable.getClass().getName(), JsonUtil.parserObjectToGson(serializable))
+        getMMKV(kvName).putString(serializable.getClass().getName(), JsonUtils.parserObjectToGson(serializable))
                 .apply();
     }
 
@@ -294,7 +294,7 @@ public class MMKVKit {
     public <T> T getObjectData(Class<T> clazz) {
         String json = getMMKV().getString(clazz.getName(), "");
         if (!TextUtils.isEmpty(json)) {
-            return JsonUtil.parserGsonToObject(json, clazz);
+            return JsonUtils.parserGsonToObject(json, clazz);
         } else {
             return null;
         }
@@ -303,7 +303,7 @@ public class MMKVKit {
     public <T> T getObjectData(String kvName, Class<T> clazz) {
         String json = getMMKV(kvName).getString(clazz.getName(), "");
         if (!TextUtils.isEmpty(json)) {
-            return JsonUtil.parserGsonToObject(json, clazz);
+            return JsonUtils.parserGsonToObject(json, clazz);
         } else {
             return null;
         }
